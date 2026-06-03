@@ -1,0 +1,114 @@
+
+:host-context(body.dark-mode) {
+  --bg-color: #202124;
+  --text-main: #e8eaed;
+  --text-variant: #bdc1c6;
+  --nav-border: #3c4043;
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  --active-bg: rgba(138, 180, 248, 0.15);
+  --active-text: #8ab4f8;
+}
+
+:host-context(body:not(.dark-mode)) {
+  --bg-color: #ffffff;
+  --text-main: #1f1f1f;
+  --text-variant: #5f6368;
+  --nav-border: #e0e0e0;
+  --hover-bg: rgba(0, 0, 0, 0.04);
+  --active-bg: rgba(26, 115, 232, 0.08);
+  --active-text: #1a73e8;
+}
+
+
+::ng-deep .mat-drawer-container { background-color: transparent !important; }
+::ng-deep .mat-drawer-backdrop { top: 64px !important; position: fixed !important; }
+
+
+.google-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: var(--bg-color) !important;
+  border-bottom: 1px solid var(--nav-border);
+  z-index: 2002;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center;
+  direction: ltr !important;
+  transition: background-color 0.3s ease;
+}
+
+.spacer { flex: 1 1 auto; }
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand-title {
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+  font-size: 20px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 8px;
+
+  a[mat-button] {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-variant) !important;
+    border-radius: 100px;
+    padding: 0 16px;
+    &:hover { background-color: var(--hover-bg); }
+  }
+
+  .active-button {
+    color: var(--active-text) !important;
+    background-color: var(--active-bg) !important;
+  }
+}
+
+
+.sidenav-container {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  z-index: 2001;
+  pointer-events: none;
+  &.drawer-opened { pointer-events: auto; }
+}
+
+.sidenav {
+  width: 256px;
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--nav-border);
+  pointer-events: auto;
+
+
+  .mat-mdc-list-item {
+    color: var(--text-main) !important;
+  }
+
+  .active-link {
+    color: var(--active-text) !important;
+    background-color: var(--active-bg) !important;
+  }
+}
+
+
+body.dark-mode .sidenav .mat-mdc-list-item .mdc-list-item__primary-text {
+  color: #e8eaed !important;
+}
+
+
+body.dark-mode .sidenav .mat-icon {
+  color: #bdc1c6 !important;
+}

@@ -1,0 +1,32 @@
+:host-context(body.dark-mode) {
+  --bg-app: #121212;
+}
+
+:host-context(body:not(.dark-mode)) {
+  --bg-app: #f8f9fa;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-app);
+  transition: background-color 0.3s ease;
+}
+
+.content-wrapper {
+  margin-top: 64px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  width: 100%;
+}

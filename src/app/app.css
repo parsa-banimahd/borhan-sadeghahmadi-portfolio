@@ -37,4 +37,9 @@
   }
 }
 
+@media (min-height: 720px) {
+  .content-wrapper{
+    margin-top: 30px;
+  }
+}
 

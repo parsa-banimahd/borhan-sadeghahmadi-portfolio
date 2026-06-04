@@ -1,4 +1,4 @@
-/* --- متغیرهای رنگی --- */
+
 :host-context(body.dark-mode) {
   --bg-app: #121212;
   --bg-page: #121212;
@@ -27,42 +27,42 @@
   --hover-bg: rgba(0, 0, 0, 0.04);
 }
 
-/* --- ساختار اصلی (Root Layout) --- */
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* این باعث می‌شود فوتر همیشه به پایین صفحه رانده شود */
+  min-height: 100vh;
   width: 100%;
   background-color: var(--bg-app);
 }
 
 .content-wrapper {
   margin-top: 32px;
-  flex: 1; /* این بخش کل فضای بین هدر و فوتر را پر می‌کند */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: visible; /* حذف overflow-y: auto برای جلوگیری از گیر کردن در موبایل */
+  overflow: visible;
   height: auto;
 }
 
 .main-content {
-  flex: 1; /* محتوا اجازه دارد رشد کند */
+  flex: 1;
   padding: 40px 24px;
   box-sizing: border-box;
   width: 100%;
 }
 
-/* --- فوتر --- */
+
 .google-footer {
   width: 100%;
   box-sizing: border-box;
   background-color: var(--footer-bg);
   border-top: 1px solid var(--footer-border);
   padding: 24px;
-  flex-shrink: 0; /* فوتر اجازه ندارد فشرده شود */
+  flex-shrink: 0;
 }
 
-/* --- تنظیمات ریسپانسیو --- */
+
 @media (max-width: 840px) {
   .content-wrapper { margin-top: 10px; }
 }

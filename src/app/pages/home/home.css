@@ -24,7 +24,7 @@
 }
 
 
-.google-dynamic-home { position: relative; width: 100%; min-height: calc(100vh - 112px); display: flex; align-items: center; justify-content: center; padding: 60px 24px; box-sizing: border-box; font-family: 'Google Sans', 'Roboto', sans-serif; overflow: hidden; background-color: var(--bg-home); transition: 0.3s; }
+.google-dynamic-home { position: relative; width: 100%; min-height: calc(100vh - 112px); display: flex; align-items: center; justify-content: center; padding: 60px 24px; box-sizing: border-box; font-family: 'Google Sans', 'Roboto', sans-serif; overflow: hidden; background-color: var(--bg-home); }
 
 .google-glow-mesh { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.6;
   .glow-orb { position: absolute; border-radius: 50%; filter: blur(80px); mix-blend-mode: multiply; animation: orbFloat 12s infinite alternate ease-in-out; }

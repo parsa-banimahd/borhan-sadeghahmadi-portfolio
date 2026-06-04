@@ -1,6 +1,7 @@
 /* --- متغیرهای رنگی --- */
 :host-context(body.dark-mode) {
   --bg-app: #121212;
+  --bg-page: #121212;
   --bg-card: #1e1e1e;
   --text-main: #ffffff;
   --text-sub: #bdc1c6;

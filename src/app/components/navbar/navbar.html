@@ -27,14 +27,56 @@
 
 <mat-sidenav-container class="sidenav-container" [class.drawer-opened]="drawer && drawer.opened" dir="ltr">
   <mat-sidenav #drawer class="sidenav" mode="over" position="start">
-    <mat-nav-list>
-      <a mat-list-item *ngFor="let item of navItems"
-         [routerLink]="item.route"
-         [routerLinkActiveOptions]="{ exact: true }"
-         routerLinkActive="active-link"
-         (click)="closeDrawer()">
-        {{ item.label }}
-      </a>
+    <style>
+      .custom-nav-list {
+        padding: 8px 12px !important;
+      }
+
+      .nav-item-style {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        padding: 0 24px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 100px;
+        transition: background-color 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+        color: var(--text-main);
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .nav-label {
+        font-family: 'Google Sans', 'Roboto', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+      }
+
+      .active-link {
+        background-color: var(--active-bg) !important;
+        color: var(--active-text) !important;
+      }
+
+      @media (hover: hover) {
+        .nav-item-style:hover {
+          background-color: var(--hover-bg);
+        }
+      }
+    </style>
+
+    <mat-nav-list class="custom-nav-list">
+      <div *ngFor="let item of navItems"
+           [routerLink]="item.route"
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeDrawer()"
+           class="nav-item-style">
+
+        <span class="nav-label">{{ item.label }}</span>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="hidden-content"></mat-sidenav-content>

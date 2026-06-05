@@ -46,6 +46,7 @@
 }
 
 .main-content {
+  margin-top: 32px;
   flex: 1;
   padding: 40px 24px;
   box-sizing: border-box;
@@ -76,3 +77,5 @@
   }
   .footer-right { justify-content: center; width: 100%; }
 }
+
+

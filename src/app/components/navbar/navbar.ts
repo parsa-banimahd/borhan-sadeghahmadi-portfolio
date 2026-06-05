@@ -61,6 +61,12 @@ export class Navbar {
   closeDrawer(): void {
     if (this.drawer) {
       this.drawer.close();
+      setTimeout(() => {
+        const activeElement = document.activeElement as HTMLElement;
+        if (activeElement) {
+          activeElement.blur();
+        }
+      }, 0);
     }
   }
 

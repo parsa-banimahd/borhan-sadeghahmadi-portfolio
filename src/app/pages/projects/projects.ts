@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 
 
 @Component({
   selector: 'app-projects',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
 
   ],
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
   styleUrl: './projects.css',
 })
 export class Projects {
-  activeTab: 'music' | 'animation' | 'painting' = 'music';
+  activeTab = signal<'music' | 'animation' | 'painting'>('music');
 
 
   scrollToProjects() {

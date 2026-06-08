@@ -1,6 +1,6 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild, ChangeDetectionStrategy, signal } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe, NgIf, NgFor } from '@angular/common';
+import { AsyncPipe, NgFor } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,10 +18,10 @@ interface NavItem {
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    NgIf,
-    NgFor,
     AsyncPipe,
+    NgFor,
     RouterLink,
     RouterLinkActive,
     MatToolbarModule,
@@ -31,7 +31,7 @@ interface NavItem {
     MatListModule
   ],
   templateUrl: './navbar.html',
-  styleUrls: ['./navbar.css']
+  styleUrl: './navbar.css'
 })
 export class Navbar {
   private breakpointObserver = inject(BreakpointObserver);
@@ -70,12 +70,12 @@ export class Navbar {
     }
   }
 
-  isDarkMode = false;
+  isDarkMode = signal(false);
 
   toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
+    this.isDarkMode.update(val => !val);
     const body = document.body;
-    if (this.isDarkMode) {
+    if (this.isDarkMode()) {
       body.classList.add('dark-mode');
     } else {
       body.classList.remove('dark-mode');

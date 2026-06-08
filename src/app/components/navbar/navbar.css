@@ -58,7 +58,7 @@
   display: flex;
   gap: 8px;
 
-  a[mat-button] {
+  button[mat-button] {
     font-size: 14px;
     font-weight: 500;
     color: var(--text-variant) !important;
@@ -71,6 +71,10 @@
     color: var(--active-text) !important;
     background-color: var(--active-bg) !important;
   }
+}
+
+:host-context(body.dark-mode) .desktop-menu button[mat-button] {
+  color: #ffffff !important;
 }
 
 
@@ -110,6 +114,10 @@ body.dark-mode .sidenav .mat-mdc-list-item .mdc-list-item__primary-text {
 
 body.dark-mode .sidenav .mat-icon {
   color: #bdc1c6 !important;
+}
+
+.dark-icon mat-icon {
+  color: #e8eaed !important;
 }
 
 

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import {Component} from '@angular/core';
 
 import { Home} from './pages/home/home';
 import {Projects} from './pages/projects/projects';

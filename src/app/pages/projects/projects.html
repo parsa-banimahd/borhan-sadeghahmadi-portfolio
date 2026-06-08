@@ -16,15 +16,15 @@
     </header>
 
     <div class="google-tabs-nav">
-      <button [class.active]="activeTab === 'music'" (click)="activeTab = 'music'" class="tab-btn t-blue">
+      <button [class.active]="activeTab() === 'music'" (click)="activeTab.set('music')" class="tab-btn t-blue">
         <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
         Composition
       </button>
-      <button [class.active]="activeTab === 'animation'" (click)="activeTab = 'animation'" class="tab-btn t-red">
+      <button [class.active]="activeTab() === 'animation'" (click)="activeTab.set('animation')" class="tab-btn t-red">
         <svg viewBox="0 0 24 24" width="18" height="18"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
         Animation
       </button>
-      <button [class.active]="activeTab === 'painting'" (click)="activeTab = 'painting'" class="tab-btn t-yellow">
+      <button [class.active]="activeTab() === 'painting'" (click)="activeTab.set('painting')" class="tab-btn t-yellow">
         <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20.71 4.63l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L14 6.84V4h-2v5.59L18.87 2.29c.39-.39 1.02-.39 1.41 0l1.34 1.34c.39.39.39 1.02 0 1.41L18.41 9H22v2h-5.59l4.3 4.3c.39.39.39 1.02 0 1.41l-1.34 1.34c-.39.39-1.02.39-1.41 0L14 11.59V17h-2v-5.59l-4.3 4.3c-.39.39-1.02.39-1.41 0l-1.34-1.34c-.39-.39-.39-1.02 0-1.41L9.59 11H6v-2h5.59L7.29 4.63c-.39-.39-.39-1.02 0-1.41L8.63 1.88c.39-.39 1.02-.39 1.41 0L14 5.59V2h2v5.59l4.3-4.3c.39-.39 1.02-.39 1.41 0z"/></svg>
         Painting
       </button>
@@ -32,7 +32,7 @@
 
     <div class="tabs-content-container">
 
-      @if (activeTab === 'music') {
+      @if (activeTab() === 'music') {
         <div class="tab-pane-grid animated-fade">
 
         <div class="work-card">
@@ -74,7 +74,7 @@
         </div>
       }
 
-      @if (activeTab === 'animation') {
+      @if (activeTab() === 'animation') {
         <div class="tab-pane-grid animated-fade">
 
           <div class="work-card">
@@ -88,7 +88,7 @@
         </div>
       }
 
-      @if (activeTab === 'painting') {
+      @if (activeTab() === 'painting') {
         <div class="work-card">
           <div class="card-header-img painting-bg">
             <img src="img.png" onclick="this.nextElementSibling.nextElementSibling.showModal()">

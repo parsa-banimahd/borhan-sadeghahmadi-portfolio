@@ -1,26 +1,31 @@
-<mat-toolbar class="google-navbar" dir="ltr">
+<mat-toolbar class="google-navbar" dir="ltr" role="navigation" aria-label="Main navigation">
   <div class="nav-left">
-    <button mat-icon-button (click)="toggleDrawer()" *ngIf="isHandset$ | async">
-      <mat-icon>menu</mat-icon>
-    </button>
+    @if (isHandset$ | async) {
+      <button mat-icon-button (click)="toggleDrawer()" aria-label="Open menu" [class.dark-icon]="isDarkMode()">
+        <mat-icon aria-hidden="true">menu</mat-icon>
+      </button>
+    }
 
     <span class="brand-title" routerLink="/">Borhan Sadeghahmadi</span>
 
-    <div class="desktop-menu" *ngIf="!(isHandset$ | async)">
-      <a mat-button *ngFor="let item of navItems"
-         [routerLink]="item.route"
-         routerLinkActive="active-button"
-         [routerLinkActiveOptions]="{ exact: true }">
-        {{ item.label }}
-      </a>
-    </div>
+    @if (!(isHandset$ | async)) {
+      <div class="desktop-menu">
+        <button mat-button
+                *ngFor="let item of navItems"
+                [routerLink]="item.route"
+                routerLinkActive="active-button"
+                [routerLinkActiveOptions]="{ exact: true }">
+          {{ item.label }}
+        </button>
+      </div>
+    }
   </div>
 
   <span class="spacer"></span>
 
   <div class="nav-right">
-    <button mat-icon-button (click)="toggleTheme()" class="theme-toggle-btn">
-      <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    <button mat-icon-button (click)="toggleTheme()" class="theme-toggle-btn" [class.dark-icon]="isDarkMode()" [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+      <mat-icon aria-hidden="true">{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
   </div>
 </mat-toolbar>
@@ -74,7 +79,6 @@
            [routerLinkActiveOptions]="{ exact: true }"
            (click)="closeDrawer()"
            class="nav-item-style">
-
         <span class="nav-label">{{ item.label }}</span>
       </div>
     </mat-nav-list>
